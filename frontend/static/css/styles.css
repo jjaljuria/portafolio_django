@@ -1,0 +1,13 @@
+.bg-dark {
+  background-color: #212121 !important;
+}
+
+.bg-secondary {
+  background-color: #424242 !important;
+}
+
+.hoverable:hover {
+  outline: white solid 1px;
+}
+
+/*# sourceMappingURL=styles.css.map */

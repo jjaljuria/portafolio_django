@@ -1,0 +1,61 @@
+{% extends 'partials/layout.html' %}
+
+
+{% load static %}
+{% block content %}
+
+<main class="container">
+	<section class="row my-4 py-4 text-light bg-dark" id="home">
+		<div class="col-12 col-md-4">
+			<img src="{% static 'img/foto-perfil.jpg'%}" class="img-fluid border border-5">
+		</div>
+		<div class="col-12 col-md-8 text-center text-md-start mt-2">
+			<h3 class="h2">José Javier Aljuria Vilchez</h3>
+			<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero dolores dolor officia autem ratione fugit
+				minus similique eveniet, odit, aliquam eos asperiores hic mollitia voluptas tempora laudantium, culpa
+				voluptatibus necessitatibus eum dicta optio. Perspiciatis esse repellendus sit non similique fugit?</p>
+		</div>
+	</section>
+
+	<section class="row text-light bg-dark py-4 mb-4" id="skills">
+		<div class="col-12 offset-md-1 col-md-10">
+			<h2>Skills</h2>
+			{% for skill in skills %}
+
+			<div class="mt-1">
+				<h6>{{skill.name}}</h5>
+					<div class="progress">
+						<div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" role="progressbar"
+							style="width: {{skill.percentage}}%" aria-valuenow="{{skill.percentage}}" aria-valuemin="0"
+							aria-valuemax="100">{{skill.percentage}}
+						</div>
+					</div>
+			</div>
+
+
+			{% endfor %}
+
+		</div>
+	</section>
+
+	<section class="row text-light bg-dark py-4 mb-4" id="projects">
+		<h2>Projects</h2>
+		{% for project in projects %}
+
+			<div class="col-12 col-md-3 mb-3 mb-md-4">
+				<div class="card bg-secondary text-light hoverable">
+					<img src="{{project.image.url}}" class="card-img-top" alt="...">
+					<div class="card-body">
+					  <h5 class="card-title">{{project.title|truncatechars:20}}</h5>
+					  <p class="card-text">{{project.description|truncatechars:100}}</p>
+					  <a href="#" class="btn btn-primary nowhere">Go Here</a>
+					</div>
+				  </div>
+			</div>
+
+		{% endfor %}
+	</section>
+
+</main>
+
+{% endblock %}
